@@ -5,42 +5,42 @@ package lab1;
  */
 public class Model {
 
-    private double A;
-    private double B;
-    private double C;
+    private double coefficientA;
+    private double coefficientB;
+    private double coefficientC;
 
 
     public void setCoefValue(double A, double B, double C) {
-        this.A = A;
-        this.B = B;
-        this.C = C;
+        this.coefficientA = A;
+        this.coefficientB = B;
+        this.coefficientC = C;
     }
 
     private double getDeterminant() {
-        return B * B - 4 * A * C;
+        return coefficientB * coefficientB - 4 * coefficientA * coefficientC;
     }
 
     public boolean getResult() {
         double determinant = getDeterminant();
         if (determinant > 0) {
-            return checkRoots(determinant);
+            return checkFirstCaseRoots(determinant);
         } else if (determinant == 0) {
-            return checkRoot();
+            return checkSecondCaseRoot();
         } else {
             return false;
         }
     }
 
-    private boolean checkRoots(double determinant) {
-        double x1 = (-1 * B + Math.sqrt(determinant)) / (2 * A);
-        double x2 = (-1 * B - Math.sqrt(determinant)) / (2 * A);
+    private boolean checkFirstCaseRoots(double determinant) {
+        double rootOne = (-1 * coefficientB + Math.sqrt(determinant)) / (2 * coefficientA);
+        double rootTwo = (-1 * coefficientB - Math.sqrt(determinant)) / (2 * coefficientA);
 
-        return (x1 % 1 == 0) && (x2 % 1 == 0);
+        return (rootOne % 1 == 0) && (rootTwo % 1 == 0);
     }
 
-    private boolean checkRoot() {
-        double x = -1 * B / 2 * A;
-        return x % 1 == 0;
+    private boolean checkSecondCaseRoot() {
+        double root = -1 * coefficientB / 2 * coefficientA;
+        return root % 1 == 0;
     }
 
 
