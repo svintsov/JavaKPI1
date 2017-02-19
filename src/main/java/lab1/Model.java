@@ -23,22 +23,22 @@ public class Model {
     public boolean getResult() {
         double determinant = getDeterminant();
         if (determinant > 0) {
-            return checkFirstCaseRoots(determinant);
+            return isFirstCaseRootsIntegers(determinant);
         } else if (determinant == 0) {
-            return checkSecondCaseRoot();
+            return isSecondCaseRootInteger();
         } else {
             return false;
         }
     }
 
-    private boolean checkFirstCaseRoots(double determinant) {
+    private boolean isFirstCaseRootsIntegers(double determinant) {
         double rootOne = (-1 * coefficientB + Math.sqrt(determinant)) / (2 * coefficientA);
         double rootTwo = (-1 * coefficientB - Math.sqrt(determinant)) / (2 * coefficientA);
 
         return (rootOne % 1 == 0) && (rootTwo % 1 == 0);
     }
 
-    private boolean checkSecondCaseRoot() {
+    private boolean isSecondCaseRootInteger() {
         double root = -1 * coefficientB / 2 * coefficientA;
         return root % 1 == 0;
     }
