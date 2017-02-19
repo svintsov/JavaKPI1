@@ -35,12 +35,12 @@ public class Model {
         double x1 = (-1 * B + Math.sqrt(determinant)) / (2 * A);
         double x2 = (-1 * B - Math.sqrt(determinant)) / (2 * A);
 
-        return (x1 % 1 == 0.0) && (x2 % 1 == 0.0);
+        return (x1 % 1 == 0) && (x2 % 1 == 0);
     }
 
     private boolean checkRoot() {
         double x = -1 * B / 2 * A;
-        return x % 1 == 0.0;
+        return x % 1 == 0;
     }
 
 

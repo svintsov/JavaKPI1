@@ -8,6 +8,7 @@ public class MyTest {
     @Test
     public void checkResult(){
         Model model = new Model();
+
         model.setCoefValue(1.0,3.0,-4.0);
         assertTrue(model.getResult());
 
@@ -16,6 +17,7 @@ public class MyTest {
 
         model.setCoefValue(-6.6,-5.0,-1.3);
         assertFalse(model.getResult());
+
     }
 
 }

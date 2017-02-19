@@ -7,7 +7,6 @@ import java.util.Scanner;
  */
 public class Controller {
 
-    public static final int N = 3;
 
     // Constructor
     Model model;
