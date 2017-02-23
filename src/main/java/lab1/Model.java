@@ -9,11 +9,21 @@ public class Model {
     private double coefficientB;
     private double coefficientC;
 
+    private static final int INDEX_A = 0;
+    private static final int INDEX_B = 1;
+    private static final int INDEX_C = 2;
+
+
+    public void setCoefValue(double[] coefStorage) {
+        coefficientA = coefStorage[INDEX_A];
+        coefficientB = coefStorage[INDEX_B];
+        coefficientC = coefStorage[INDEX_C];
+    }
 
     public void setCoefValue(double A, double B, double C) {
-        this.coefficientA = A;
-        this.coefficientB = B;
-        this.coefficientC = C;
+        coefficientA = A;
+        coefficientB = B;
+        coefficientC = C;
     }
 
     private double getDeterminant() {

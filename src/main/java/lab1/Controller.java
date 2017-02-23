@@ -12,30 +12,36 @@ public class Controller {
     Model model;
     View view;
 
+    public static final int COEFFICIENT_COUNTER = 3;
+
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
     }
 
     public void processUser() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        double A = getCoefFromScanner(sc);
-        double B = getCoefFromScanner(sc);
-        double C = getCoefFromScanner(sc);
-        model.setCoefValue(A, B, C);
+        model.setCoefValue(getCoefStorage(scanner));
         view.printMessage(View.RESULT + model.getResult());
-
 
     }
 
-    public double getCoefFromScanner(Scanner sc) {
-        view.printMessage(View.INPUT_DOUBLE);
-        while (!sc.hasNextDouble()) {
-            view.printMessage(View.WRONG_INPUT + View.INPUT_DOUBLE);
-            sc.next();
+    private double[] getCoefStorage(Scanner scanner) {
+        double[] coefsStorage = new double[COEFFICIENT_COUNTER];
+        for (int i = 0; i < COEFFICIENT_COUNTER; i++) {
+            coefsStorage[i] = getCoefFromScanner(scanner);
         }
-        return sc.nextDouble();
+        return coefsStorage;
+    }
+
+    private double getCoefFromScanner(Scanner scanner) {
+        view.printMessage(View.INPUT_DOUBLE);
+        while (!scanner.hasNextDouble()) {
+            view.printMessage(View.WRONG_INPUT + View.INPUT_DOUBLE);
+            scanner.next();
+        }
+        return scanner.nextDouble();
     }
 
 }
