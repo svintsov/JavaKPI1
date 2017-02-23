@@ -24,25 +24,18 @@ public class Controller {
         double B = getCoefFromScanner(sc);
         double C = getCoefFromScanner(sc);
         model.setCoefValue(A, B, C);
-        view.printMessage(view.RESULT + model.getResult());
+        view.printMessage(View.RESULT + model.getResult());
 
 
     }
 
     public double getCoefFromScanner(Scanner sc) {
-        view.printMessage(view.INPUT_DOUBLE);
-        double userInput;
-        while (true) {
-            try {
-                userInput = Double.parseDouble(sc.next());
-                break;
-            } catch (NumberFormatException ignore) {
-                view.printMessage(View.WRONG_INPUT + View.INPUT_DOUBLE);
-            }
+        view.printMessage(View.INPUT_DOUBLE);
+        while (!sc.hasNextDouble()) {
+            view.printMessage(View.WRONG_INPUT + View.INPUT_DOUBLE);
+            sc.next();
         }
-        return userInput;
-
+        return sc.nextDouble();
     }
-
 
 }
