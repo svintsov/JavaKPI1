@@ -32,13 +32,14 @@ public class Model {
 
     public boolean getResult() {
         double determinant = getDeterminant();
+        boolean result = false;
         if (determinant > 0) {
-            return isFirstCaseRootsIntegers(determinant);
-        } else if (determinant == 0) {
-            return isSecondCaseRootInteger();
-        } else {
-            return false;
+            result = isFirstCaseRootsIntegers(determinant);
         }
+        if (determinant == 0) {
+            result = isSecondCaseRootInteger();
+        }
+        return result;
     }
 
     private boolean isFirstCaseRootsIntegers(double determinant) {
