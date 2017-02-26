@@ -14,13 +14,13 @@ public class Model {
     private static final int INDEX_C = 2;
 
 
-    public void setCoefValue(double[] coefStorage) {
+    void setCoefValue(final double[] coefStorage) {
         coefficientA = coefStorage[INDEX_A];
         coefficientB = coefStorage[INDEX_B];
         coefficientC = coefStorage[INDEX_C];
     }
 
-    public void setCoefValue(double A, double B, double C) {
+    public void setCoefValue(final double A, final double B, final double C) {
         coefficientA = A;
         coefficientB = B;
         coefficientC = C;
@@ -31,7 +31,7 @@ public class Model {
     }
 
     public boolean getResult() {
-        double determinant = getDeterminant();
+        final double determinant = getDeterminant();
         boolean result = false;
         if (determinant > 0) {
             result = isFirstCaseRootsIntegers(determinant);
@@ -42,10 +42,9 @@ public class Model {
         return result;
     }
 
-    private boolean isFirstCaseRootsIntegers(double determinant) {
+    private boolean isFirstCaseRootsIntegers(final double determinant) {
         double rootOne = (-1 * coefficientB + Math.sqrt(determinant)) / (2 * coefficientA);
         double rootTwo = (-1 * coefficientB - Math.sqrt(determinant)) / (2 * coefficientA);
-
         return (rootOne % 1 == 0) && (rootTwo % 1 == 0);
     }
 

@@ -8,7 +8,7 @@ public class View {
     public static final String INPUT_DOUBLE = "Input a double value:";
     public static final String RESULT = "The equation has integer roots:";
 
-    public void printMessage(String message) {
+    public void printMessage(final String message) {
         System.out.println(message);
     }
 
